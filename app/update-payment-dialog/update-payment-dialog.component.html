@@ -1,0 +1,66 @@
+<form>
+    <mat-form-field floatLabel="auto" appearance="fill">
+        <mat-label>#EMPLOYEE ID</mat-label>
+        <input matInput type="number" [(ngModel)]="EmpID_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <span matPrefix>&nbsp;</span>
+    <mat-form-field floatLabel="auto" appearance="fill">
+        <mat-label>#CUSTOMER ID</mat-label>
+        <input matInput type="number" [(ngModel)]="CustID_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <span matPrefix>&nbsp;</span>
+    <mat-form-field floatLabel="auto" appearance="fill">
+        <mat-label>CUSTOMER NAME</mat-label>
+        <input matInput type="text" [(ngModel)]="Cust_name_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <br>
+    <mat-form-field floatLabel="auto" appearance="fill">
+        <mat-label>TYPE PAY</mat-label>
+        <mat-select [(ngModel)]="TypePay_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+        <mat-option value="MOBILE">MOBILE PAY</mat-option>
+        <mat-option value="CASH">CASH PAY</mat-option>
+        <mat-option value="BANK">BANK PAY</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <span matPrefix>&nbsp;</span>
+    <mat-form-field floatLabel="auto" appearance="fill">
+        <mat-label>NUM STAND</mat-label>
+        <mat-select [(ngModel)]="NumSTAND_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+        <mat-option value="001">001</mat-option>
+        <mat-option value="002">002</mat-option>
+        <mat-option value="003">003</mat-option>
+        <mat-option value="004">004</mat-option>
+        <mat-option value="005">005</mat-option>
+        <mat-option value="006">006</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <span matPrefix>&nbsp;</span>
+    <mat-form-field floatLabel="auto" appearance="fill">
+        <mat-label>AMOUNT PAY</mat-label>
+        <input matInput type="number" [(ngModel)]="amount" [ngModelOptions]="{standalone: true}" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <br>
+    <mat-form-field floatLabel="auto" appearance="fill">
+        <mat-label>DATE</mat-label>
+        <input matInput [matDatepicker]="myDatePicker_six" [(ngModel)]="Date_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+        <mat-datepicker-toggle [for]="myDatePicker_six" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #myDatePicker_six></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <table>
+        <thead></thead>
+        <tbody>
+            <tr *ngFor="let item of itemsX">
+                <td>
+                    <button mat-raised-button color="primary" [disabled]="!EmpID_ || !CustID_ || !Cust_name_ || !TypePay_ || !NumSTAND_ || !amount || !Date_"><mat-icon>add</mat-icon>ADD RECORD</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

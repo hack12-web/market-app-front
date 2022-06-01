@@ -1,0 +1,541 @@
+<mat-tab-group>
+    <mat-tab label="RECEPTIONIST INFOS">
+      <mat-tab-group>
+      <mat-tab label="ADD RECEPTIONIST">
+          <mat-card>
+            <form>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>ID</mat-label>
+                <input matInput type="number" disabled  [(ngModel)]="Id_R" [ngModelOptions]="{standalone: true}"  autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>RECE ID</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Id" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>FIRST NAME</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_FirstName" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>LAST NAME</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_LastName" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>GENDER</mat-label>
+                <mat-select autocomplete="off" [(ngModel)]="rece_Gender" [ngModelOptions]="{standalone: true}" required>
+                  <mat-option value="F">F</mat-option>
+                  <mat-option value="M">M</mat-option>
+                  <mat-option value="OTHERS">OTHERS</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto"  appearance="fill">
+                <mat-label>PHONE NUMBER</mat-label>
+                  <input matInput type="number" [(ngModel)]="rece_PhoneNumber" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                  <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>COUTRY</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Country" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>ADDRESS</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Address" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>EMAIL</mat-label>
+                <input matInput type="email" [(ngModel)]="rece_Email" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>DATE</mat-label>
+                <input matInput [matDatepicker]="myDatePicker" [(ngModel)]="rece_Date" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #myDatePicker></mat-datepicker>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>USERNAME</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Username" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>PASSWORD</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Password" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="addReceptionist()" [disabled]="!rece_Id || !rece_FirstName || !rece_LastName || !rece_Gender || !rece_PhoneNumber || !rece_Country || !rece_Address || !rece_Email || !rece_Date || !rece_Username || !rece_Password" ><mat-icon>add</mat-icon>ADD</button>
+            </form>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="DELETE & UPDATE RECEPTIONIST">
+          <mat-card>
+            <form>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>ID</mat-label>
+                <input matInput type="number" disabled  [(ngModel)]="Id_R" [ngModelOptions]="{standalone: true}"  autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>RECE ID</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Id" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>FIRST NAME</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_FirstName" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>LAST NAME</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_LastName" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>GENDER</mat-label>
+                <mat-select autocomplete="off" [(ngModel)]="rece_Gender" [ngModelOptions]="{standalone: true}" required>
+                  <mat-option value="F">F</mat-option>
+                  <mat-option value="M">M</mat-option>
+                  <mat-option value="OTHERS">OTHERS</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto"  appearance="fill">
+                <mat-label>PHONE NUMBER</mat-label>
+                  <input matInput type="number" [(ngModel)]="rece_PhoneNumber" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                  <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>COUTRY</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Country" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>ADDRESS</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Address" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>EMAIL</mat-label>
+                <input matInput type="email" [(ngModel)]="rece_Email" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>DATE</mat-label>
+                <input matInput [matDatepicker]="myDatePicker_" [(ngModel)]="rece_Date_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-datepicker-toggle [for]="myDatePicker_" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #myDatePicker_></mat-datepicker>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>USERNAME</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Username" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>PASSWORD</mat-label>
+                <input matInput type="text" [(ngModel)]="rece_Password" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br><br>
+              <button mat-raised-button color="primary" [disabled]="!Id_R || !rece_Id || !rece_FirstName || !rece_LastName || !rece_Gender || !rece_PhoneNumber || !rece_Country || !rece_Address || !rece_Email || !rece_Date_ || !rece_Username || !rece_Password"  (click)="updateReceptionist()" ><mat-icon>update</mat-icon>UPDATE</button>
+            </form>
+            <br><br>
+            <mat-form-field floatLabel="auto">
+              <mat-label>Find here</mat-label>
+              <input matInput>
+              <span matPrefix><mat-icon>search</mat-icon></span>
+            </mat-form-field>
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#ID</th>
+                  <th scope="col">RECE ID</th>
+                  <th scope="col">FIRST NAME</th>
+                  <th scope="col">LAST NAME</th>
+                  <th scope="col">GENDER</th>
+                  <th scope="col">PHONE NUMBER</th>
+                  <th scope="col">COUNTRY</th>
+                  <th scope="col">ADDRESS</th>
+                  <th scope="col">EMAIL</th>
+                  <th scope="col">DATE</th>
+                  <th scope="col">USERNAME</th>
+                  <th scope="col">PASSWORD</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items">
+                  <th scope="row">{{item.Id}}</th>
+                  <td>{{item.Rece_ID}}</td>
+                  <td>{{item.First_name}}</td>
+                  <td>{{item.Last_name}}</td>
+                  <td>{{item.Gender}}</td>
+                  <td>{{item.Phone_number}}</td>
+                  <td>{{item.Country}}</td>
+                  <td>{{item.Addresse}}</td>
+                  <td>{{item.Email}}</td>
+                  <td>{{item.DateOfJoing}}</td>
+                  <td>{{item.Username}}</td>
+                  <td>{{item.Pass_word}}</td>
+                  <td>
+                    <button mat-raised-button color="primary" (click)="fillReceptionistInputs(item.Id,item.Rece_ID,item.First_name,item.Last_name,item.Gender,item.Phone_number,item.Country,item.Addresse,item.Email,item.DateOfJoing,item.Username, item.Pass_word)" >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                      </svg>
+                      </button>
+                      <button mat-raised-button color="primary" (click)="deleteReceptionist(item)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg>
+                      </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="VIEWS RECEPTIONIST">
+          <br>
+          <mat-form-field floatLabel="auto">
+            <mat-label>FILTER BY NAME OR #ID</mat-label>
+            <input matInput>
+            <span matPrefix><mat-icon>search</mat-icon></span>
+          </mat-form-field>
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">RECE ID</th>
+                <th scope="col">FIRST NAME</th>
+                <th scope="col">LAST NAME</th>
+                <th scope="col">GENDER</th>
+                <th scope="col">PHONE NUMBER</th>
+                <th scope="col">COUNTRY</th>
+                <th scope="col">ADDRESS</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">DATE</th>
+                <th scope="col">USERNAME</th>
+                <th scope="col">PASSWORD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <th scope="row">{{item.Id}}</th>
+                <td>{{item.Rece_ID}}</td>
+                <td>{{item.First_name}}</td>
+                <td>{{item.Last_name}}</td>
+                <td>{{item.Gender}}</td>
+                <td>{{item.Phone_number}}</td>
+                <td>{{item.Country}}</td>
+                <td>{{item.Addresse}}</td>
+                <td>{{item.Email}}</td>
+                <td>{{item.DateOfJoing}}</td>
+                <td>{{item.Username}}</td>
+                <td>{{item.Pass_word}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-tab>
+    <mat-tab label="FINANCE INFOS">
+      <mat-tab-group>
+        <mat-tab label="ADD FINANCE">
+          <mat-card>
+            <form>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>ID</mat-label>
+                <input matInput type="number" disabled  [(ngModel)]="Id_F" [ngModelOptions]="{standalone: true}"  autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>FINA ID</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Id" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>FIRST NAME</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_FirstName" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>LAST NAME</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_LastName" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>GENDER</mat-label>
+                <mat-select autocomplete="off" [(ngModel)]="fina_Gender" [ngModelOptions]="{standalone: true}" required>
+                  <mat-option value="F">F</mat-option>
+                  <mat-option value="M">M</mat-option>
+                  <mat-option value="OTHERS">OTHERS</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto"  appearance="fill">
+                <mat-label>PHONE NUMBER</mat-label>
+                  <input matInput type="number" [(ngModel)]="fina_PhoneNumber" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                  <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>COUTRY</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Country" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>ADDRESS</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Address" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>EMAIL</mat-label>
+                <input matInput type="email" [(ngModel)]="fina_Email" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>DATE</mat-label>
+                <input matInput [matDatepicker]="myDatePicker_f" [(ngModel)]="fina_Date" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-datepicker-toggle [for]="myDatePicker_f" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #myDatePicker_f></mat-datepicker>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>USERNAME</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Username" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>PASSWORD</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Password" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="addFinance()" [disabled]="!fina_Id || !fina_FirstName || !fina_LastName || !fina_Gender || !fina_PhoneNumber || !fina_Country || !fina_Address || !fina_Email || !fina_Date || !fina_Username || !fina_Password" ><mat-icon>add</mat-icon>ADD</button>
+            </form>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="DELETE & UPDATE FINANCE">
+          <mat-card>
+            <form>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>ID</mat-label>
+                <input matInput type="number" disabled  [(ngModel)]="Id_F_" [ngModelOptions]="{standalone: true}"  autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>FINA ID</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Id" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>FIRST NAME</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_FirstName" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>LAST NAME</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_LastName" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>GENDER</mat-label>
+                <mat-select autocomplete="off" [(ngModel)]="fina_Gender" [ngModelOptions]="{standalone: true}" required>
+                  <mat-option value="F">F</mat-option>
+                  <mat-option value="M">M</mat-option>
+                  <mat-option value="OTHERS">OTHERS</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto"  appearance="fill">
+                <mat-label>PHONE NUMBER</mat-label>
+                  <input matInput type="number" [(ngModel)]="fina_PhoneNumber" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                  <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>COUTRY</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Country" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <br>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>ADDRESS</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Address" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>EMAIL</mat-label>
+                <input matInput type="email" [(ngModel)]="fina_Email" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>DATE</mat-label>
+                <input matInput [matDatepicker]="myDatePicker_f_" [(ngModel)]="fina_Date" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-datepicker-toggle [for]="myDatePicker_f_" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #myDatePicker_f_></mat-datepicker>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>USERNAME</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Username" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <span matPrefix>&nbsp;</span>
+              <mat-form-field floatLabel="auto" appearance="fill">
+                <mat-label>PASSWORD</mat-label>
+                <input matInput type="text" [(ngModel)]="fina_Password" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="updateFinance()" [disabled]=" !Id_F_ || !fina_Id || !fina_FirstName || !fina_LastName || !fina_Gender || !fina_PhoneNumber || !fina_Country || !fina_Address || !fina_Email || !fina_Date || !fina_Username || !fina_Password" ><mat-icon>update</mat-icon>UPDATE</button>
+            </form>
+            <br><br>
+            <mat-form-field floatLabel="auto">
+              <mat-label>Find here</mat-label>
+              <input matInput>
+              <span matPrefix><mat-icon>search</mat-icon></span>
+            </mat-form-field>
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#ID</th>
+                  <th scope="col">FINA ID</th>
+                  <th scope="col">FIRST NAME</th>
+                  <th scope="col">LAST NAME</th>
+                  <th scope="col">GENDER</th>
+                  <th scope="col">PHONE NUMBER</th>
+                  <th scope="col">COUNTRY</th>
+                  <th scope="col">ADDRESS</th>
+                  <th scope="col">EMAIL</th>
+                  <th scope="col">DATE</th>
+                  <th scope="col">USERNAME</th>
+                  <th scope="col">PASSWORD</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of itemsX">
+                  <th scope="row">{{item.Id}}</th>
+                  <td>{{item.Fina_ID}}</td>
+                  <td>{{item.First_name}}</td>
+                  <td>{{item.Last_name}}</td>
+                  <td>{{item.Gender}}</td>
+                  <td>{{item.Phone_number}}</td>
+                  <td>{{item.Country}}</td>
+                  <td>{{item.Addresse}}</td>
+                  <td>{{item.Email}}</td>
+                  <td>{{item.DateOfJoing}}</td>
+                  <td>{{item.Username}}</td>
+                  <td>{{item.Pass_word}}</td>
+                  <td>
+                    <button mat-raised-button color="primary" (click)="fillFinanceInputs(item.Id,item.Fina_ID,item.First_name,item.Last_name,item.Gender,item.Phone_number,item.Country,item.Addresse,item.Email,item.DateOfJoing,item.Username, item.Pass_word)" >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                      </svg>
+                      </button>
+                      <button mat-raised-button color="primary" (click)="deleteFinace(item)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg>
+                      </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="VIEWS FINANCE">
+          <br>
+          <mat-form-field floatLabel="auto">
+            <mat-label>FILTER BY NAME OR #ID</mat-label>
+            <input matInput>
+            <span matPrefix><mat-icon>search</mat-icon></span>
+          </mat-form-field>
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">FINA ID</th>
+                <th scope="col">FIRST NAME</th>
+                <th scope="col">LAST NAME</th>
+                <th scope="col">GENDER</th>
+                <th scope="col">PHONE NUMBER</th>
+                <th scope="col">COUNTRY</th>
+                <th scope="col">ADDRESS</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">DATE</th>
+                <th scope="col">USERNAME</th>
+                <th scope="col">PASSWORD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of itemsX">
+                <th scope="row">{{item.Id}}</th>
+                <td>{{item.Fina_ID}}</td>
+                <td>{{item.First_name}}</td>
+                <td>{{item.Last_name}}</td>
+                <td>{{item.Gender}}</td>
+                <td>{{item.Phone_number}}</td>
+                <td>{{item.Country}}</td>
+                <td>{{item.Addresse}}</td>
+                <td>{{item.Email}}</td>
+                <td>{{item.DateOfJoing}}</td>
+                <td>{{item.Username}}</td>
+                <td>{{item.Pass_word}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+    </mat-tab-group>

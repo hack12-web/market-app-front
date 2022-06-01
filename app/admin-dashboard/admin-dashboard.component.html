@@ -1,0 +1,60 @@
+<mat-toolbar color="primary" class="litle-bar">
+    <div><span>ADMIN CPANEL</span></div>
+    <div><button mat-button><mat-icon (click)="openAdminDashboard()">logout</mat-icon></button></div>
+</mat-toolbar>
+<div class="container">
+<header class="item">
+  <mat-toolbar color="primary" class="inside_bar">
+    <div><span>ADMIN OPERATIONS</span></div>
+  </mat-toolbar>
+</header>
+<mat-sidenav-container>
+  <mat-sidenav [opened]="opened" mode="side">
+    <mat-list>
+      <mat-list-item>
+          <button mat-button (click)="openAdminActiv()"><mat-icon>mode_edit</mat-icon>CUSTOMERS</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item>
+        <button mat-button (click)="openPayement()"><mat-icon>money_off</mat-icon>PAYMENT / PAYRALL</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item>
+        <button mat-button (click)="openEmployeeManage()"><mat-icon>update</mat-icon>EMPLOYEES</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item>
+        <button mat-button (click)="openAdminSettings()"><mat-icon>settings</mat-icon>SETTINGS</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item>
+        <button mat-button><mat-icon>logout</mat-icon>LOG OUT</button>
+      </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-button (click)="opened=!opened"><mat-icon>home</mat-icon></button>
+      <div *ngIf="expression_one">
+        <app-admin-activities></app-admin-activities>
+      </div>
+      <div *ngIf="expression_two">
+        <app-employee-manage></app-employee-manage>
+      </div>
+      <div *ngIf="expression_three">
+        <app-payements></app-payements>
+      </div>
+      <div *ngIf="expression_four">
+        <app-settings-admin></app-settings-admin>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

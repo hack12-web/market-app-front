@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Login As {{title}}</h2>
+  <mat-dialog-content>
+    <mat-form-field floatLabel="auto" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field floatLabel="auto" appearance="fill">
+      <mat-label> password</mat-label>
+      <input matInput type="password" [(ngModel)]="password" [disabled]="!username" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+    </mat-form-field>
+    </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" [disabled]="!username || !password" (click)="oF_D()"><mat-icon>login</mat-icon>Login</button>
+  </mat-dialog-actions>

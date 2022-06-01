@@ -1,0 +1,220 @@
+<mat-tab-group>
+    <mat-tab label="PAYMENT MANAGEMENT">
+      <form>
+        <br>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>#ID</mat-label>
+          <input matInput type="number" disabled [(ngModel)]="id_payment" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>#EMPLOYEE ID</mat-label>
+          <input matInput type="number" [(ngModel)]="EmpID_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <span matPrefix>&nbsp;</span>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>#CUSTOMER ID</mat-label>
+          <mat-select [(ngModel)]="CustID_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+            <mat-option *ngFor="let item of cust_ids" value="{{item.Cust_ID}}">{{item.Cust_ID}}</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <span matPrefix>&nbsp;</span>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>CUSTOMER NAME</mat-label>
+          <input matInput type="text" [(ngModel)]="Cust_name_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>TYPE PAY</mat-label>
+          <mat-select [(ngModel)]="TypePay_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+            <mat-option value="MOBILE">MOBILE</mat-option>
+            <mat-option value="CASH">CASH</mat-option>
+            <mat-option value="BANK">BANK</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <span matPrefix>&nbsp;</span>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>NUM STAND</mat-label>
+          <mat-select [(ngModel)]="NumSTAND_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+            <mat-option value="001">001</mat-option>
+            <mat-option value="002">002</mat-option>
+            <mat-option value="003">003</mat-option>
+            <mat-option value="004">004</mat-option>
+            <mat-option value="005">005</mat-option>
+            <mat-option value="006">006</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <span matPrefix>&nbsp;</span>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>AMOUNT PAY</mat-label>
+          <input matInput type="number" [(ngModel)]="amount" [ngModelOptions]="{standalone: true}" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>DATE</mat-label>
+          <input matInput [matDatepicker]="myDatePicker_six" [(ngModel)]="Date_" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-datepicker-toggle [for]="myDatePicker_six" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker_six></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" (click)="addPayment()" [disabled]="!EmpID_ || !CustID_ || !Cust_name_ || !TypePay_ || !NumSTAND_ || !amount || !Date_"><mat-icon>add</mat-icon>ADD RECORD</button>
+        <br>
+        <br>
+        <button mat-raised-button color="primary" (click)="updatePayment()" [disabled]=" !id_payment || !EmpID_ || !CustID_ || !Cust_name_ || !TypePay_ || !NumSTAND_ || !amount || !Date_"><mat-icon>update</mat-icon>UPDATE RECORD</button>
+        <br><br>
+        <mat-form-field floatLabel="auto">
+          <span matPrefix><mat-icon>search</mat-icon></span>
+          <mat-label>FIND HERE</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+        <div class="table-responsive">
+        <table class="table table-success table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#ID</th>
+              <th scope="col">#FINANCE ID</th>
+              <th scope="col">CUSTOMER ID</th>
+              <th scope="col">CUSTOMER NAME</th>
+              <th scope="col">TYPE PAY</th>
+              <th scope="col">NUM STAND</th>
+              <th scope="col">AMOUNT PAY</th>
+              <th scope="col">DATE</th>
+              <th scope="col">ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of itemsX">
+              <th scope="row">{{item.Id}}</th>
+              <td>{{item.Fina_ID}}</td>
+              <td>{{item.Cust_ID}}</td>
+              <td>{{item.Cust_name}}</td>
+              <td>{{item.Type_pay}}</td>
+              <td>{{item.Num_Stand}}</td>
+              <td>{{item.Amount_pay}}</td>
+              <td>{{item.DateOfPay}}</td>
+              <td>
+                <button mat-raised-button color="primary" (click)="FillupdatePayment(item.Id, item.Fina_ID, item.Cust_ID, item.Cust_name, item.Type_pay, item.Num_Stand, item.Amount_pay,item.DateOfPay)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                  </svg>
+                </button>
+                <button mat-raised-button color="primary" (click)="deletePayment(item)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                  </svg>
+                </button>
+              </td>
+            <tr>
+          <tbody>
+        </table>
+      </div>
+      </form>
+    </mat-tab>
+    <mat-tab label="PAYRALL MANAGEMENT">
+      <form>
+        <br>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label># ID</mat-label>
+          <input matInput type="number" [(ngModel)]="id_payrall" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>#EMPLOYEE ID</mat-label>
+          <input matInput type="number" [(ngModel)]="_EmpID" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <span matPrefix>&nbsp;</span>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>EMPLOYEE NAME</mat-label>
+          <input matInput type="text" [(ngModel)]="_Emp_name" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <span matPrefix>&nbsp;</span>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>TOTAL DAYS</mat-label>
+          <input matInput type="number" [(ngModel)]="_Total_days" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>SALARY</mat-label>
+          <input matInput type="number" [(ngModel)]="_Salary" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <span matPrefix>&nbsp;</span>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>DAY WORK</mat-label>
+          <input matInput type="number" [(ngModel)]="_Day_works" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <span matPrefix>&nbsp;</span>
+        <mat-form-field floatLabel="auto" appearance="fill">
+          <mat-label>DATE</mat-label>
+          <input matInput [matDatepicker]="myDatePicker_five" [(ngModel)]="_Date" [ngModelOptions]="{standalone: true}" autocomplete="off" required>
+          <mat-datepicker-toggle [for]="myDatePicker_five" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #myDatePicker_five></mat-datepicker>
+        </mat-form-field>
+        <br><br>
+        <button mat-raised-button color="primary" (click)="addPayrall()" [disabled]="!_EmpID || !_Emp_name || !_Total_days || !_Salary || !_Day_works || !_Date" ><mat-icon>add</mat-icon>ADD RECORD</button>
+        <br><br>
+        <button mat-raised-button color="primary" (click)="updatePayrall()" [disabled]="!id_payrall || !_EmpID || !_Emp_name || !_Total_days || !_Salary || !_Day_works || !_Date" ><mat-icon>update</mat-icon>UPDATE RERECORD</button>
+        <br><br>
+        <mat-form-field floatLabel="auto">
+          <mat-icon matSuffix>search</mat-icon>
+          <mat-label>FIND HERE</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+        <div class="table-responsive">
+          <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#EMPL ID</th>
+                <th scope="col">#EMPLOYEE ID</th>
+                <th scope="col">EMPLOYEE NAME</th>
+                <th scope="col">TOTAL DAYS</th>
+                <th scope="col">SALARY</th>
+                <th scope="col">DAY WORKS</th>
+                <th scope="col">DATE OF PAYRALL</th>
+                <th scope="col">ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <th scope="row">{{item.Id}}</th>
+                <td>{{item.Emp_ID}}</td>
+                <td>{{item.Emp_name}}</td>
+                <td>{{item.Total_days}}</td>
+                <td>{{item.Salary}}</td>
+                <td>{{item.Day_works}}</td>
+                <td>{{item.DateOfpayrall}}</td>
+                <td>
+                  <button mat-raised-button color="primary" (click)="FillPayrallInputFilds(item.Id, item.Emp_ID,item.Emp_name,item.Total_days,item.Salary,item.Day_works,item.DateOfpayrall)" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                    </button>
+                    <button mat-raised-button color="primary" (click)="deletePayrall(item)">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                      </svg>
+                    </button>
+                </td>
+              <tr>
+            <tbody>
+          </table>
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
